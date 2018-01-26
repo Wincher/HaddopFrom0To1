@@ -17,9 +17,11 @@ import java.util.List;
 
 /**
  * 代码参考自http://blog.csdn.net/qq_31570685/article/details/51757604
+ * org.apache.hadoop.hbase.client.RetriesExhaustedException: Can't get the location for replica 0
+ *     -->很多情况会导致此问题,我的情况是hbase-site.xml 中 hbase.zookeeper.quorum 参数没有配置master的只配置了slave
  */
 public class HBaseDemo {
-    // 与HBase数据库的连接对象
+    // 与HBase数据库的连接实例
     Connection connection;
 
     // 数据库元数据操作对象
@@ -46,22 +48,22 @@ public class HBaseDemo {
     /**
      * 创建表
      */
+    @Test
     public void createTable() throws IOException {
 
         System.out.println("---------------创建表 START-----------------");
+        System.err.println(admin.getClusterStatus().getClusterId());
+        // 表名
+        String tableNameString = "t_user";
 
-        // 数据表表名
-        String tableNameString = "t_book";
-
-        // 新建一个数据表表名对象
+        // 根据表明创建表对象
         TableName tableName = TableName.valueOf(tableNameString);
 
-        // 如果需要新建的表已经存在
+        // 表已经存在
         if(admin.tableExists(tableName)){
-
-            System.out.println("表已经存在！");
+            System.out.println("表已经存在!");
         }
-        // 如果需要新建的表不存在
+        // 新建的表不存在
         else{
 
             // 数据表描述对象
