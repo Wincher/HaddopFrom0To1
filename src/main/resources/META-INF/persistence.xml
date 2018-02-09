@@ -8,7 +8,7 @@
         <properties>
             <property name="kundera.nodes" value="master"/>
             <property name="kundera.port" value="2181"/>
-            <property name="kundera.keyspace" value="KunderaExamples"/>
+            <property name="kundera.keyspace" value=""/> <!-- 这个值就是将你的表名签名加一个prefix，eg:keyspace:t_table -->
             <property name="kundera.dialect" value="hbase"/>
             <property name="kundera.client.lookup.class" value="com.impetus.client.hbase.HBaseClientFactory" />
             <!--<property name="kundera.client.property" value="HBase.Kundera" />-->

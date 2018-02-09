@@ -20,7 +20,6 @@ public class KunderaHBaseDemo {
         //props.put(CassandraConstants.CQL_VERSION, CassandraConstants.CQL_VERSION_3_0);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hbase_pu", props);
         EntityManager em = emf.createEntityManager();
-
         em.persist(user);
         em.close();
         emf.close();
@@ -90,7 +89,7 @@ public class KunderaHBaseDemo {
         Assert.assertNotNull(person);
         Assert.assertEquals("0001", user.getUserId());
         Assert.assertEquals("John", user.getFirstName());
-
+        
     }
 
     /**

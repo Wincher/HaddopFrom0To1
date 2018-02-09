@@ -58,7 +58,7 @@ public class HBaseDemo {
 
         System.out.println("---------------创建表 START-----------------");
         // 表名
-        String tableNameString = "t_book";
+        String tableNameString = "t_school";
 
         // 根据表明创建表对象
         TableName tableName = TableName.valueOf(tableNameString);

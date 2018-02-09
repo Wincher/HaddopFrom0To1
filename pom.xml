@@ -4,32 +4,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>cn.wincher</groupId>
-    <artifactId>HaddopFrom0to1</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <!-- for Kundera -->
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>sonatype-nexus</id>-->
-            <!--<name>Kundera Public Repository</name>-->
-            <!--<url>https://oss.sonatype.org/content/repositories/releases</url>-->
-            <!--<releases>-->
-                <!--<enabled>true</enabled>-->
-            <!--</releases>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
-    <!--</repositories>-->
-
-
     <dependencies>
         <!-- hadoop -->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.hadoop</groupId>-->
-            <!--<artifactId>hadoop-common</artifactId>-->
-            <!--<version>2.8.3</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.8.3</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
@@ -40,37 +21,48 @@
             <artifactId>hadoop-client</artifactId>
             <version>2.8.3</version>
         </dependency>
-
-        <!-- hbase -->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.hbase</groupId>-->
-            <!--<artifactId>hbase-it</artifactId>-->
-            <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/com.impetus.kundera.client/kundera-hbase -->
         <dependency>
-            <groupId>com.impetus.kundera.client</groupId>
-            <artifactId>kundera-hbase</artifactId>
-            <version>3.12</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-maven-plugins</artifactId>
+            <version>2.8.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-hadoop2-compat</artifactId>
+            <version>1.4.0</version>
         </dependency>
 
+        <!-- hbase -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-common</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
-
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.hbase</groupId>-->
-            <!--<artifactId>hbase-client</artifactId>-->
-            <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>junit</groupId>-->
-            <!--<artifactId>junit</artifactId>-->
-            <!--<version>4.12</version>-->
-            <!--&lt;!&ndash;<scope>test</scope>&ndash;&gt;-->
-        <!--</dependency>-->
+        <!-- Kundera-hbase -->
+        <!-- 这个要注意artifactId是v2注意啊，坑死人不偿命啊这方面资料少，
+        v2应该是为1.x的HBase准备的，之前不知道，简直都怀疑人生了-->
+        <dependency>
+            <groupId>com.impetus.kundera.client</groupId>
+            <artifactId>kundera-hbase-v2</artifactId>
+            <version>3.12</version>
+        </dependency>
     </dependencies>
+    <groupId>cn.wincher</groupId>
+    <artifactId>HaddopFrom0to1</artifactId>
+
+
+    <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
